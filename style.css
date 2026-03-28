@@ -19,6 +19,25 @@
     --color-gradient:linear-gradient(135deg, #9b4a9b, #5b21b6);
 
 }
+body.dark-theme{
+    --color-primary: #9b4a9b;
+    --color-primary-dark:#5b21b6;
+    --color-accent:#8B5CF6;
+    --color-card:#1f2937;
+    --color-input:#374151;
+    --color-text:white;
+    --color-placeholder:#9ca3af;
+    --color-border:#4ed7e3;
+    --color-gradient:linear-gradient(135deg, #9b4a9b, #5b21b6);
+}
+
+body.dark-theme .container{
+    border: 1px  solid var(--color-border);
+}
+
+
+
+
 body {
     display: flex;
     align-items: center;
@@ -216,6 +235,7 @@ transition: all 0.3s ease  ;
     outline:none;
     height:100%;
     width: 100%;
+    color: var(--color-text);
 }
 
 .prompt-actions .custom-select:is(:focus,:hover){
@@ -316,7 +336,7 @@ transition: all 0.3s ease  ;
 }
 
 
-.gallery-grid .img-card .status-conatiner
+.gallery-grid .img-card .status-container
     {
         padding:10px;
         display:flex;
@@ -325,13 +345,34 @@ transition: all 0.3s ease  ;
         align-items: center;
     }
 
+.gallery-grid .img-card:where(.loading, .error)  .status-container{
+    display:flex;
+
+}
+.gallery-grid .img-card.img-card.loading .status-container i,
+.gallery-grid .img-card.img-card.error .spinner{
+    display: none;
+}
+
+
+.gallery-grid .img-card.img-card.error .status-container i{
+    font-size:1.5rem;
+    color:red;
+}
+
+
+
+
+
+
+
 .gallery-grid .img-card.img-card.loading .spinner{
     width: 23px;
     height:23px;
     border-radius:50%;
     border:3px solid var(--color-border);
     border-top-color: var(--color-primary);
-    animation: spin 1s linear infinite;
+    /* animation: spin 1s linear infinite; */
 
 }
 @keyframes spin {
@@ -346,4 +387,6 @@ to{
     text-align: center;
     color: var(--color-placeholder);
 }
+
+
 
