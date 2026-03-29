@@ -3,6 +3,7 @@ const modelSelect=document.getElementById("model-select");
 const countSelect=document.getElementById("count-select");
 const ratioSelect=document.getElementById("ratio-select");
 const themeToggle = document.querySelector(".theme-toggle");
+const gridGallery=document.querySelector(".gallery-grid");
 (()=>{
     const savedTheme=localStorage.getItem("theme")
     const systemPreferDark=window.matchMedia("(prefers-color-scheme:dark)").matches;
@@ -52,12 +53,32 @@ const handleFormSubmit=(e)=>{
     const aspectRatio=ratioSelect.value || "512x512";
     const promptText=promptInput.value.trim();
 
-    console.log({selectedModel,imageCount,aspectRatio,promptText});
+    // console.log({selectedModel,imageCount,aspectRatio,promptText});- it give teh form data in console
+
+
+    //  creating image card 
+    // Creating placeholder cards with loading spinners
+const createImageCard=(selectedModel,imageCount,aspectRatio,promptText)=>{
+    gridGallery.innerHTML="";
+    // Implementation for creating image card
+    for(let i=0;i<imageCount;i++){
+        gridGallery.innerHTML+=`<div class="img-card loading" id="img-card-${i}" style="aspect-ratio:${aspectRatio}">
+                        <div class="status container">
+                            <div class="spinner"></div>
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <p class="status-text">Generating images...</p>
+
+                        </div>
+                        <img src="" alt="" class="result-img">
+                        </div>`;
+
+
+    }
+
 }
 const promptForm=document.querySelector(".prompt-form");
 
 promptForm.addEventListener("submit",handleFormSubmit)
-
 
 
 
