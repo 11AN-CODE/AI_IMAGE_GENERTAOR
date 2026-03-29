@@ -1,4 +1,7 @@
 // Theme Toggle
+const modelSelect=document.getElementById("model-select");
+const countSelect=document.getElementById("count-select");
+const ratioSelect=document.getElementById("ratio-select");
 const themeToggle = document.querySelector(".theme-toggle");
 (()=>{
     const savedTheme=localStorage.getItem("theme")
@@ -40,7 +43,20 @@ promptBtn.addEventListener("click",()=>{
 });
 
 
+// Making the promptForm work
+const handleFormSubmit=(e)=>{
+    e.preventDefault();
+    // Gather form data
+    const selectedModel=modelSelect.value;
+    const imageCount=parseInt(countSelect.value) || 1;
+    const aspectRatio=ratioSelect.value || "512x512";
+    const promptText=promptInput.value.trim();
 
+    console.log({selectedModel,imageCount,aspectRatio,promptText});
+}
+const promptForm=document.querySelector(".prompt-form");
+
+promptForm.addEventListener("submit",handleFormSubmit)
 
 
 

@@ -38,7 +38,7 @@
                  <!-- Prompt Action -->
                   <div class="prompt-actions">
                     <div class="select-wrapper">
-                        <select  class="custom-select" required>
+                        <select  class="custom-select"  id="model-select" required>
                             
                             <option value="" selected disabled>Select Model</option>
             <option value="black-forest-labs/FLUX.1-dev">FLUX.1-dev</option>
@@ -50,7 +50,7 @@
                     </div>
 
 <div class="select-wrapper">
-    <select  class="custom-select" required>
+    <select  class="custom-select"  id="count-select" required>
         <option value="" selected disabled>Image Count</option>
         <option value="1">1 Images</option>
         <option value="2">2 Images</option>
@@ -61,7 +61,7 @@
 </div>
 
 <div class="select-wrapper">
-    <select  class="custom-select" required>
+    <select  class="custom-select" required id="ratio-select">
         <option value="" selected disabled>Image Size</option>
         <option value="256x256">256x256</option>
         <option value="512x512">512x512</option>
