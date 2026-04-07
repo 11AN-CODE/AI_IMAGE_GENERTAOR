@@ -8,8 +8,7 @@ const promptInput = document.querySelector(".prompt-input");
 const promptBtn = document.querySelector(".prompt-btn");
 const promptForm = document.querySelector(".prompt-form");
 
-// 2. API Key
-const API_KEY = CONFIG.HF_TOKEN;
+
 
 // 3. Theme Toggle Logic
 const applyTheme = (isDark) => {
